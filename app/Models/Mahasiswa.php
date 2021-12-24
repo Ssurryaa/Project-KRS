@@ -14,6 +14,7 @@ class Mahasiswa extends Model
         'alamat',
         'telepon',
         'prodi_id',
+        'user_id',
         'angkatan',
         'foto_mahasiswa',
         'password_mahasiswa'

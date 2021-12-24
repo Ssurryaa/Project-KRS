@@ -7,39 +7,6 @@
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Menu
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="\dashboard"><i class="fas fa-fw fa-th-list"></i>Dashboard <span class="badge badge-success">6</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="\profile"><i class="fa fa-fw fa-user-circle"></i>Profil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('krs_mahasiswa')}}"><i class="fa fa-fw fa-address-book"></i>KRS Mahasiswa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('khsmahasiswa')}}"><i class="fa fa-fw fa-address-book"></i>KHS Mahasiswa</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="\"><i class="fa fa-fw fa-arrow-left"></i>Keluar</a>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid  dashboard-content">
                 <!-- ============================================================== -->

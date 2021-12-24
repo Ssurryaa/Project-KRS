@@ -16,6 +16,7 @@ class Dosen extends Model
         'alamat',
         'telepon',
         'prodi_id',
+        'user_id',
         'foto_dosen'
     ];
     

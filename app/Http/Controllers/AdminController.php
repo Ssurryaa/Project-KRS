@@ -6,7 +6,9 @@ use App\Models\Mahasiswa;
 use App\Models\MataKuliah;
 use App\Models\ProgramStudi;
 use App\Models\Dosen;
+use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
@@ -39,6 +41,13 @@ class AdminController extends Controller
         $extension = $request->file('foto_mahasiswa');
         $imgname = rand().".".$extension->getClientOriginalExtension();
 
+        $nim = $request->nim;
+        Users::create([
+            'username' => $request->nim,
+            'password' => Hash::make($nim),
+            'role' => "mahasiswa"
+        ]);
+
         $data = array(
             'foto_mahasiswa' => $imgname,
             'nim' => $request->nim,
@@ -46,12 +55,16 @@ class AdminController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'prodi_id' => $request->prodis,
+            'user_id' => $request->iduser,
             'angkatan' => $request->angkatan
         );
 
+
         $extension->move(public_path('foto_mahasiswa'),$imgname);
         
+
         Mahasiswa::create($data);
+
         return redirect('listmahasiswa')->withSuccess("Data Mahasiswa Berhasil Ditambahkan", $extension);
 
     }
@@ -146,6 +159,14 @@ class AdminController extends Controller
         $extension->move(public_path('foto_dosen'),$imagename);
         
         Dosen::create($data);
+
+        $nama = $request->nama;
+        Users::create([
+            'username' => $request->nama,
+            'password' => Hash::make($nama),
+            'role' => "dosen"
+        ]);
+
         return redirect('listdosen')->withSuccess("Data Dosen Berhasil Ditambahkan", $extension);
 
     }

@@ -39,11 +39,6 @@ Route::group(['middleware' => 'auth'], function(){
     });
 });
 
-
-Route::get('/matkul', function () {
-    return view('matkul');
-});
-
 //admin
 Route::get('/listmahasiswa',[AdminController::class,'index'])->name('listmahasiswa');
 Route::get('/addmahasiswa', [AdminController::class,'addmahasiswa'])->name('addmahasiswa');
@@ -53,7 +48,7 @@ Route::get('/{id}/editmahasiswa',[AdminController::class,'editmahasiswa'])->name
 Route::post('/{id}/saveedit',[AdminController::class,'saveedit'])->name('saveedit');
 Route::post('/{id}/delete',[AdminController::class,'deletemahasiswa'])->name('deletemahasiswa');
 
-//mtakul
+//matkul
 Route::get('/matakuliah',[MatkulController::class,'index'])->name('matakuliah');
 Route::get('/addmatakuliah', [MatkulController::class,'addmatakuliah'])->name('addmatakuliah');
 Route::post('/savematakuliah',[MatkulController::class,'savematakuliah'])->name('savematakuliah');
@@ -79,6 +74,8 @@ Route::get('/khsmahasiswa',[DosenController::class,'khs'])->name('khsmahasiswa')
 Route::get('{id}/penilaiankhs', [DosenController::class, 'penilaiankhs'])->name('penilaiankhs');
 Route::post('/{id}/penilaian', [DosenController::class,'penilaian'])->name('penilaian');
 
+Route::get('/cetakkrs', [KrsController::class,'cetakkrs'])->name('cetakkrs');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -86,6 +83,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
 
 
 

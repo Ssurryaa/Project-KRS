@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Transaksi;
 use App\Models\Matakuliah;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -109,6 +110,15 @@ class KrsController extends Controller
           ]);
           return redirect()->route('krs.index');
 
+     }
+
+     public function cetakkrs($id)
+     {
+          //$data = Transaksi::all();
+          //return view('mahasiswa.cetakkrs', compact('data'));
+          $data = Transaksi::with('mahasiswa')->where('mahasiswa_id','=',Auth::user()->id)->get();
+          $mahasiswas = Mahasiswa::where('id', $id)->first();
+          return view('mahasiswa.cetakkrs')->with(compact('data', 'mahasiswas'));
      }
 }
 

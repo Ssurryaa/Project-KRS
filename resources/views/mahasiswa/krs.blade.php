@@ -41,18 +41,18 @@
                                 <h5 class="mb-0">Kartu Rencana Studi</h5>
                                 <p>This example shows DataTables and the Buttons extension being used with the Bootstrap 4 framework providing the styling.</p>
                             </div>
-                            @if (Auth::user()->role == "mahasiswa")
-                                @if ($datas <= 20)
-                                    <a class = "btn btn-primary" href="{{route('krs.add')}}">Pengajuan KRS</a>  
-                                @elseif ($datas > 20)
-                                    <h5>SKS Sudah Mencapai Batas, Tidak Bisa Mengajukan Matakuliah</h5>
-                                @endif
-                            {{-- @elseif (Auth::user()->role == "admin")
-                                <a class = "btn btn-primary" href="{{route('krs.add')}}">Pengajuan KRS</a>   --}}
-                            @endif
-                            
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    @if (Auth::user()->role == "mahasiswa")
+                                        @if ($datas <= 20)
+                                            <a class = "btn btn-primary mb-2" href="{{route('krs.add')}}">Pengajuan KRS</a>  
+                                        @elseif ($datas > 20)
+                                            <h5>SKS Sudah Mencapai Batas, Tidak Bisa Mengajukan Matakuliah</h5>
+                                        @endif
+                                    {{-- @elseif (Auth::user()->role == "admin")
+                                        <a class = "btn btn-primary" href="{{route('krs.add')}}">Pengajuan KRS</a>   --}}
+                                    @endif
+                                    <a class = "btn btn-success mb-2" href="{{route('cetakkrs')}}">Cetak KRS</a>
                                     <table id="example" class="table table-striped table-bordered second" style="width:100%">
                                         <thead>
                                             <tr>

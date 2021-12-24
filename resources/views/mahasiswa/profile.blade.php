@@ -4,44 +4,6 @@
 @section('header', 'Profile')
 
 @section('contents')
-      <!-- ============================================================== -->
-      <!-- sidebar  -->
-      <!-- ============================================================== -->
-      <div class="nav-left-sidebar sidebar-dark">
-          <div class="menu-list">
-              <nav class="navbar navbar-expand-lg navbar-light">
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav flex-column">
-                          <li class="nav-divider">
-                              Menu
-                          </li>
-                          <li class="nav-item ">
-                              <a class="nav-link" href="#"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link active" href="#"><i class="fa fa-fw fa-rocket"></i>Profil</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{route('krs.index')}}"><i class="fa fa-fw fa-chart-pie"></i>KRS</a>
-                          </li>
-                          <li class="nav-item ">
-                              <a class="nav-link" href="#"><i class="fas fa-fw fa-book-open"></i>KHS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-link" href="\khs"><i class="fas fa-fw fa-book-open"></i></i>Mata Kuliah</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#"><i class="fas fa-fw fa-folder"></i>Keluar</a>
-                          </li>
-                      </ul>
-                  </div>
-              </nav>
-          </div>
-      </div>
-      <!-- ============================================================== -->
-      <!-- sidebar  -->
-      <!-- ============================================================== -->
-
       <div class="dashboard-wrapper">
         <div class="profile">
           <div class="container-fluid dashboard-content ">
