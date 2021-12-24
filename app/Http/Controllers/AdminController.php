@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use DB;
 
 // use App\Model\
 
@@ -47,6 +48,9 @@ class AdminController extends Controller
             'password' => Hash::make($nim),
             'role' => "mahasiswa"
         ]);
+
+        //$iduser = DB::table('users')->select('id')->where('username', '=', nim);
+        //$iduser = DB::table('users')->select('users.id')->join('mahasiswas', 'mahasiswas.nim', '=','users.username')->get();
 
         $data = array(
             'foto_mahasiswa' => $imgname,

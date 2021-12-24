@@ -112,13 +112,13 @@ class KrsController extends Controller
 
      }
 
-     public function cetakkrs($id)
+     public function cetakkrs()
      {
-          //$data = Transaksi::all();
-          //return view('mahasiswa.cetakkrs', compact('data'));
-          $data = Transaksi::with('mahasiswa')->where('mahasiswa_id','=',Auth::user()->id)->get();
-          $mahasiswas = Mahasiswa::where('id', $id)->first();
-          return view('mahasiswa.cetakkrs')->with(compact('data', 'mahasiswas'));
+          $data = Transaksi::all();
+          return view('mahasiswa.cetakkrs', compact('data'));
+          //$data = Transaksi::with('mahasiswa')->where('mahasiswa_id','=',Auth::user()->id)->get();
+          //$mahasiswas = Mahasiswa::where('id', $id)->first();
+          //return view('mahasiswa.cetakkrs')->with(compact('data', 'mahasiswas'));
      }
 }
 

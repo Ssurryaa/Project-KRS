@@ -14,7 +14,6 @@ class Mahasiswa extends Model
         'alamat',
         'telepon',
         'prodi_id',
-        'user_id',
         'angkatan',
         'foto_mahasiswa',
         'password_mahasiswa'
@@ -35,5 +34,10 @@ class Mahasiswa extends Model
     public function prodis()
     {
         return $this->belongsTo(ProgramStudi::class, 'prodi_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(Users::class, 'user_id');
     }
 }

@@ -22,7 +22,7 @@
                 @foreach ($data as $dataa)
                 <tr data-aos="fade-in" data-aos-delay="1000">
                     <td align="center">{{ $loop->iteration }}</th>
-                    <td align="center">{{$dataa->tahun_ajaran}}</td>
+                    <td align="center">{{$dataa->matkul->kode}}</td>
                     <td>{{$dataa->matkul->nama_matakuliah}}</td>
                     <td align="center">{{$dataa->matkul->sks}}</td>
                 </tr>
