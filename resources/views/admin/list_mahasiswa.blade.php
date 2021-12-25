@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'KRS')
-@section('header', 'KRS')
+@section('title', 'Data Mahasiswa')
+@section('header', 'Data Mahasiswa')
 
 @section('contents')
         <!-- ============================================================== -->
@@ -10,6 +10,20 @@
         <div class="dashboard-wrapper">
             <div class="container-fluid  dashboard-content">
                 <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Data Mahasiswa</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active"><a href="\listmahasiswa" class="breadcrumb-link">Data Mahasiswa</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <!-- ============================================================== -->
                     <!-- data table  -->
                     <!-- ============================================================== -->
@@ -17,7 +31,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Data Mahasiswa</h5>
-                                <p>Silahkan tambah, edit, ataupun delete data mahasiswa</p>
+                                <p>Silahkan tambah, edit, ataupun delete data Mahasiswa</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/datatables/css/buttons.bootstrap4.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/datatables/css/select.bootstrap4.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/datatables/css/fixedHeader.bootstrap4.css')}}">
-    <title>Dashboard @yield('title')</title>
+    <title>@yield('title')</title>
 </head>
 <body>
     <div class="dashboard-main-wrapper">

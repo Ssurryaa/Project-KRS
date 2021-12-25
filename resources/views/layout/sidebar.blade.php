@@ -20,10 +20,10 @@
                                 <a class="nav-link" href="{{route('krs.index')}}"><i class="fas fa-fw fa-clone"></i>KRS</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="\khs"><i class="fas fa-fw fa-file"></i>KHS</a>
+                                <a class="nav-link" href="{{ Route('penilaiankhs',Auth::user()->id) }}"><i class="fas fa-fw fa-file"></i>KHS</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="\khs"><i class="fa fa-fw fa-book"></i>Mata Kuliah</a>
+                                <a class="nav-link" href="\matakuliah"><i class="fa fa-fw fa-book"></i>Mata Kuliah</a>
                             </li>
                             @endif
                             @if(Auth::user()->role == 'dosen')
@@ -31,7 +31,7 @@
                                 <a class="nav-link" href="\krs_mahasiswa"><i class="fa fa-fw fa-address-book"></i>KRS Mahasiswa</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="\khs"><i class="fa fa-fw fa-address-book"></i>KHS Mahasiswa</a>
+                                <a class="nav-link" href="\khsmahasiswa"><i class="fa fa-fw fa-address-book"></i>KHS Mahasiswa</a>
                             </li>
                             @endif
                             @if(Auth::user()->role == 'admin')

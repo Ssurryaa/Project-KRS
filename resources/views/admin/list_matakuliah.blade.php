@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'KRS')
-@section('header', 'KRS')
+@section('title', 'Matakuliah')
+@section('header', 'Matakuliah')
 
 @section('contents')
         <!-- ============================================================== -->
@@ -15,12 +15,11 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Dashboard</h2>
+                            <h2 class="pageheader-title">Matakuliah</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">KRS</a></li>
+                                        <li class="breadcrumb-item active"><a href="\matakuliah" class="breadcrumb-link">Matakuliah</a></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -42,11 +41,13 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    @if(auth()->user()->role == "admin")
                                     <a class="btn btn-primary mb-2" href="/addmatakuliah">Add Mata Kuliah</a>
                                     @if(session()->has('success'))
                                         <div class="alert alert-success mt-2">
                                             {{ session()->get('success') }}
                                         </div>
+                                    @endif
                                     @endif
                                     <table class="table table-striped table-bordered first">
                                         <thead>
@@ -59,7 +60,9 @@
                                                 <th>Prodi</th>
                                                 <th>Dosen</th>
                                                 <th>Status MK</th>
-                                                <th>Action</th>
+                                                @if(auth()->user()->role == "admin")
+                                                    <th>Action</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,16 +76,18 @@
                                                 <td>{{ $matkul->prodis->nama_prodi }}</td>
                                                 <td>{{ $matkul->dosens->nama }}</td>
                                                 <td>{{ $matkul->status_mk }}</td>
+                                                @if(auth()->user()->role == "admin")
                                                 <td>
-                                                    <form action="/{{ $matkul->id }}/deletematakuliah" method="post">
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                                            @csrf
-                                                            <a type="button" class="btn btn-success" href="{{ Route('detailmatakuliah', $matkul->id) }}">Details</a>
-                                                            <a type="button" class="btn btn-primary" href="{{ Route('editmatakuliah', $matkul->id) }}">Edit</a>
-                                                            <button type="submit" class="btn btn-danger"  onclick="return confirm('Yakin Ingin Mengapus Data {{ $matkul->nama_matakuliah }}?')">Delete</button>
-                                                        </div>
-                                                    </form>
+                                                            <form action="/{{ $matkul->id }}/deletematakuliah" method="post">
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    @csrf
+                                                                    <a type="button" class="btn btn-success" href="{{ Route('detailmatakuliah', $matkul->id) }}">Details</a>
+                                                                    <a type="button" class="btn btn-primary" href="{{ Route('editmatakuliah', $matkul->id) }}">Edit</a>
+                                                                    <button type="submit" class="btn btn-danger"  onclick="return confirm('Yakin Ingin Mengapus Data {{ $matkul->nama_matakuliah }}?')">Delete</button>
+                                                                </div>
+                                                            </form>
                                                 </td>
+                                                @endif
                                             </tr>
                                             @endforeach 
                                         </tbody>

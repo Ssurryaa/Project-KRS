@@ -28,13 +28,13 @@ class DosenController extends Controller
     }
 
     public function accept($id, Request $request){
-        $temp= Transaksi::find($id);
+        $temp= Transaksi::where('id','=',$id)->get()->first();
 
         $temp->update([
              'nilai'=>$request->nilai
         ]);
-        //return redirect()->route('pengajuanKRS');
-        return redirect('krs_mahasiswa');
+        return redirect()->route('pengajuanKRS');
+        //return view('pengajuanKRS')->withSuccess("Data Mahasiswa Berhasil Ditambahkan");
 
    }
 
@@ -44,6 +44,7 @@ class DosenController extends Controller
         return view('dosen.khs_mahasiswa', compact('mahasiswas'));
     }
 
+
     public function penilaiankhs($id)
     {
         $data = Transaksi::with('mahasiswa')->where('mahasiswa_id', $id)->get();
@@ -52,15 +53,14 @@ class DosenController extends Controller
     }
 
     public function penilaian($id, Request $request){
-        $temp= Transaksi::find($id);
+        $temp= Transaksi::where('id','=',$id)->get()->first();
 
         $temp->update([
              'nilai'=>$request->nilai
         ]);
-        //return redirect()->route('pengajuanKRS');
-        return redirect('khsmahasiswa');
+        return redirect()->route('khsmahasiswa');
+        //return view('khsmahasiswa')->withSuccess("Data Mahasiswa Berhasil Ditambahkan");
 
    }
-
 
 }

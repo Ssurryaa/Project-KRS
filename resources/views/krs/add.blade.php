@@ -16,9 +16,8 @@
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Charts</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Sparkline</li>
+                                <li class="breadcrumb-item"><a href="{{route('krs.index')}}" class="breadcrumb-link">KRS</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Pengajuan KRS</li>
                             </ol>
                         </nav>
                     </div>

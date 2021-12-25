@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'Detail Animal')
-@section('header', 'Detail of Animal')
+@section('title', 'Data Mahasiswa')
+@section('header', 'Data Mahasiswa')
 
 @section('contents')
     <!-- ============================================================== -->
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Dashboard</h2>
+                            <h2 class="pageheader-title">Data Mahasiswa</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
@@ -38,7 +38,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Kartu Rencana Studi</h5>
-                                <p>This example shows DataTables and the Buttons extension being used with the Bootstrap 4 framework providing the styling.</p>
+                                <p></p>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">

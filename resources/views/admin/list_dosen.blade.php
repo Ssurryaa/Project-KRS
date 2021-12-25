@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'KRS')
-@section('header', 'KRS')
+@section('title', 'Dosen')
+@section('header', 'Dosen')
 
 @section('contents')
         <!-- ============================================================== -->
@@ -15,12 +15,11 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Dashboard</h2>
+                            <h2 class="pageheader-title">Dosen</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">KRS</a></li>
+                                        <li class="breadcrumb-item active"><a href="\listdosen" class="breadcrumb-link">Data Dosen</a></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -38,7 +37,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Data Mahasiswa</h5>
-                                <p>Silahkan tambah, edit, ataupun delete data mahasiswa</p>
+                                <p>Silahkan tambah, edit, ataupun delete data Dosen</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

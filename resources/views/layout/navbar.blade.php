@@ -8,11 +8,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
+                    <ul class="navbar-nav ml-auto navbar-right-top mr-4">
                         <li class="nav-item dropdown nav-user">
                             <a aria-expanded="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                <span>Ni Made Dita Dwikasari ( Mahasiswa )</span>
+                                @if(Auth::check())
+                                    <span class=""> {{Auth::user()->username}}</span>
+                                @endif
                             </a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <a class="dropdown-item" href="\"><i class="fas fa-power-off mr-2"></i>Logout</a>

@@ -23,6 +23,9 @@ use App\Http\Controllers\MatkulController;
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'login'])->name('post.login');
+Route::get('/dashboard',[LoginController::class,'dashboard'])->name('dashboard');
+Route::post('/{id}/editdashboard',[LoginController::class,'editdashboard'])->name('editdashboard');
+Route::post('/{id}/savedashboard',[LoginController::class,'savedashboard'])->name('savedashboard');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/profile',[MahasiswaController::class,'index'])->name('profile');
@@ -80,9 +83,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
 
 
 

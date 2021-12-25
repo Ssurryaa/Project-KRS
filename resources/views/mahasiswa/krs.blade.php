@@ -19,9 +19,7 @@
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Charts</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Sparkline</li>
+                                        <li class="breadcrumb-item active" aria-current="page">KRS</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -39,7 +37,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Kartu Rencana Studi</h5>
-                                <p>This example shows DataTables and the Buttons extension being used with the Bootstrap 4 framework providing the styling.</p>
+                                <p>Silahkan Ajukan KRS Anda!</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -52,8 +50,8 @@
                                     {{-- @elseif (Auth::user()->role == "admin")
                                         <a class = "btn btn-primary" href="{{route('krs.add')}}">Pengajuan KRS</a>   --}}
                                     @endif
-                                    <a class = "btn btn-success mb-2" href="{{route('cetakkrs')}}">Cetak KRS</a>
-                                    <table id="example" class="table table-striped table-bordered second" style="width:100%">
+                                    <a class = "btn btn-success mb-2" href="{{route('cetakkrs')}}"><i class="fas fa-fw fa-print"></i>Cetak KRS</a>
+                                    <table id="example" class="table table-striped table-bordered first" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
