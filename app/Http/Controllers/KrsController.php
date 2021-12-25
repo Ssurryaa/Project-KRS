@@ -114,8 +114,9 @@ class KrsController extends Controller
 
      public function cetakkrs()
      {
-          $data = Transaksi::all();
-          return view('mahasiswa.cetakkrs', compact('data'));
+          $data = Transaksi::where('mahasiswa_id','=',Auth::user()->id)->get();
+          $datas = Transaksi::with('matkul')->where('mahasiswa_id','=',Auth::user()->id)->get()->pluck('matkul.sks')->sum();
+          return view('mahasiswa.cetakkrs', compact('data', 'datas'));
           //$data = Transaksi::with('mahasiswa')->where('mahasiswa_id','=',Auth::user()->id)->get();
           //$mahasiswas = Mahasiswa::where('id', $id)->first();
           //return view('mahasiswa.cetakkrs')->with(compact('data', 'mahasiswas'));

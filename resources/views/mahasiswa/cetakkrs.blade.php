@@ -31,10 +31,10 @@
         </table>
         <table class="static" align="center" rules="all" border="1px" style="width: 95%;">
             <thead>
-                <tr>
-                    <th align="right">Total</th>
-                    <td width="61px">24</td>
-                </tr>
+                    <td align="right">Total</td>
+                    @if (Auth::user()->role == "mahasiswa")
+                    <td width="60px" align="center"> <b>{{ $datas }}</b></td>
+                    @endif
             </thead>
         </table>
     </div>
