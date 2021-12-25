@@ -29,47 +29,31 @@ class AdminController extends Controller
     }
     public function savemahasiswa(Request $request)
     {   
-        $request->validate([
-            'foto_mahasiswa' => 'required',
-            'nim' => 'required',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required',
-            'prodis' => 'required',
-            'angkatan' => 'required'
-        ]);
-        
-        $extension = $request->file('foto_mahasiswa');
-        $imgname = rand().".".$extension->getClientOriginalExtension();
+        $data = $request->all();
+        $prodis=ProgramStudi::all();
+        $file           = $request->file('foto_mahasiswa');
+        $nama_file      = $file->getClientOriginalName();
+        $file->move('foto_mahasiswa',$file->getClientOriginalName());
 
-        $nim = $request->nim;
-        Users::create([
-            'username' => $request->nim,
-            'password' => Hash::make($nim),
-            'role' => "mahasiswa"
-        ]);
+        //dd($data);
+        $users = new Users;
+        $users->username = $data['nim'];
+        $users->password = Hash::make($data['nim']);
+        $users->role = "mahasiswa";
+        $users->save();
 
-        //$iduser = DB::table('users')->select('id')->where('username', '=', nim);
-        //$iduser = DB::table('users')->select('users.id')->join('mahasiswas', 'mahasiswas.nim', '=','users.username')->get();
+        $mahasiswas = new Mahasiswa;
+        $mahasiswas->foto_mahasiswa = $nama_file;
+        $mahasiswas->nim = $data['nim'];
+        $mahasiswas->nama = $data['nama'];
+        $mahasiswas->alamat = $data['alamat'];
+        $mahasiswas->telepon = $data['telepon'];
+        $mahasiswas->prodi_id = $data['prodis'];
+        $mahasiswas->user_id = $users['id'];
+        $mahasiswas->angkatan = $data['angkatan'];
+        $mahasiswas->save();
 
-        $data = array(
-            'foto_mahasiswa' => $imgname,
-            'nim' => $request->nim,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'telepon' => $request->telepon,
-            'prodi_id' => $request->prodis,
-            'user_id' => $request->iduser,
-            'angkatan' => $request->angkatan
-        );
-
-
-        $extension->move(public_path('foto_mahasiswa'),$imgname);
-        
-
-        Mahasiswa::create($data);
-
-        return redirect('listmahasiswa')->withSuccess("Data Mahasiswa Berhasil Ditambahkan", $extension);
+        return redirect('listmahasiswa')->withSuccess("Data Mahasiswa Berhasil Ditambahkan");
 
     }
     public function detailmahasiswa($id)
@@ -139,39 +123,30 @@ class AdminController extends Controller
     }
     public function savedosen(Request $request)
     {   
-        $request->validate([
-            'foto_dosen' => 'required',
-            'nip' => 'required',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required',
-            'prodis' => 'required'
-        ]);
-        
-        $extension = $request->file('foto_dosen');
-        $imagename = rand().".".$extension->getClientOriginalExtension();
+        $data = $request->all();
+        $prodis=ProgramStudi::all();
+        $file           = $request->file('foto_dosen');
+        $nama_file      = $file->getClientOriginalName();
+        $file->move('foto_dosen',$file->getClientOriginalName());
 
-        $data = array(
-            'foto_dosen' => $imagename,
-            'nip' => $request->nip,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'telepon' => $request->telepon,
-            'prodi_id' => $request->prodis,
-        );
+        //dd($data);
+        $users = new Users;
+        $users->username = $data['nip'];
+        $users->password = Hash::make($data['nip']);
+        $users->role = "dosen";
+        $users->save();
 
-        $extension->move(public_path('foto_dosen'),$imagename);
-        
-        Dosen::create($data);
+        $dosens = new Dosen;
+        $dosens->foto_dosen = $nama_file;
+        $dosens->nip = $data['nip'];
+        $dosens->nama = $data['nama'];
+        $dosens->alamat = $data['alamat'];
+        $dosens->telepon = $data['telepon'];
+        $dosens->prodi_id = $data['prodis'];
+        $dosens->user_id = $users['id'];
+        $dosens->save();
 
-        $nama = $request->nama;
-        Users::create([
-            'username' => $request->nama,
-            'password' => Hash::make($nama),
-            'role' => "dosen"
-        ]);
-
-        return redirect('listdosen')->withSuccess("Data Dosen Berhasil Ditambahkan", $extension);
+        return redirect('listdosen')->withSuccess("Data Dosen Berhasil Ditambahkan");
 
     }
     public function detaildosen($id)
