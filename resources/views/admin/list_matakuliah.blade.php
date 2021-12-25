@@ -37,7 +37,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Mata Kuliah</h5>
-                                <p>Silahkan tambah, edit, ataupun delete data Mata Kuliah</p>
+                                @if(auth()->user()->role == "admin")
+                                    <p>Silahkan tambah, edit, ataupun delete data Mata Kuliah</p>
+                                @endif
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
