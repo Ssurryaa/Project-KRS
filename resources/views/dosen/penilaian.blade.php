@@ -58,34 +58,36 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($data as $dataa)
-                                            <tr data-aos="fade-in" data-aos-delay="1000">
-                                                <th scope="row">{{ $loop->index+1 }}</th>
-                                                <td>{{$dataa->tahun_ajaran}}</td>
-                                                <td>{{$dataa->semester}}</td>
-                                                <td>{{$dataa->matkul->nama_matakuliah}}</td>
-                                                <td>{{$dataa->matkul->sks}}</td>
-                                                <td>{{$dataa->nilai}}</td>
-                                                @if(auth()->user()->role == "dosen")
-                                                <td>
-                                                    <form action="{{ route('penilaian',['id' =>$dataa->id]) }}" method="post">
-                                                        @csrf
-                                                        <div class="form-group row">
-                                                            <div class="col-sm-10">
-                                                                <select class="form-control" aria-label="nilai" name='nilai' id="nilai" required>
-                                                                    <option selected value="">Pilih Nilai</option>
-                                                                    <option value="A">A (Sangat Baik)</option>
-                                                                    <option value="B">B (Baik)</option>
-                                                                    <option value="C">C (Cukup)</option>
-                                                                    <option value="D">D (Kurang)</option>
-                                                                    <option value="E">E (Buruk)</option>
-                                                                </select>
-                                                                <input type="submit" class="btn btn-sm btn-primary" value="Submit">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </td>
+                                                @if ($dataa->nilai != 'Tunda' && $dataa->nilai != 'Terima')
+                                                    <tr data-aos="fade-in" data-aos-delay="1000">
+                                                        <th scope="row">{{ $loop->index+1 }}</th>
+                                                        <td>{{$dataa->tahun_ajaran}}</td>
+                                                        <td>{{$dataa->semester}}</td>
+                                                        <td>{{$dataa->matkul->nama_matakuliah}}</td>
+                                                        <td>{{$dataa->matkul->sks}}</td>
+                                                        <td>{{$dataa->nilai}}</td>
+                                                        @if(auth()->user()->role == "dosen")
+                                                        <td>
+                                                            <form action="{{ route('penilaian',['id' =>$dataa->id]) }}" method="post">
+                                                                @csrf
+                                                                <div class="form-group row">
+                                                                    <div class="col-sm-10">
+                                                                        <select class="form-control" aria-label="nilai" name='nilai' id="nilai" required>
+                                                                            <option selected value="">Pilih Nilai</option>
+                                                                            <option value="A">A (Sangat Baik)</option>
+                                                                            <option value="B">B (Baik)</option>
+                                                                            <option value="C">C (Cukup)</option>
+                                                                            <option value="D">D (Kurang)</option>
+                                                                            <option value="E">E (Buruk)</option>
+                                                                        </select>
+                                                                        <input type="submit" class="btn btn-sm btn-primary" value="Submit">
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </td>
+                                                        @endif
+                                                    </tr>
                                                 @endif
-                                            </tr>
                                             @endforeach 
                                         </tbody>
                                     </table>

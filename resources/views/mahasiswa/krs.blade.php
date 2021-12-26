@@ -57,7 +57,6 @@
                                                 <th>No</th>
                                                 <th>Tahun Ajaran</th>
                                                 <th>Semester</th>
-                                                <th>Nama Mahasiswa</th>
                                                 <th>SKS</th>
                                                 <th>Matakuliah</th>
                                                 <th>Nilai</th>
@@ -72,7 +71,6 @@
                                                     <td>{{$dataa->tahun_ajaran}}</td>
                                                     <td>{{$dataa->semester}}</td>
                                                     {{-- {{dd($dataa->mahasiswa())}} --}}
-                                                    <td>{{$dataa->mahasiswa->nama}}</td>
                                                     <td>{{$dataa->matkul->sks}}</td>
                                                     <td>{{$dataa->matkul->nama_matakuliah}}</td>
                                                     <td>{{$dataa->nilai}}</td>
@@ -128,7 +126,6 @@
                                                 <th>No</th>
                                                 <th>Tahun Ajaran</th>
                                                 <th>Semester</th>
-                                                <th>Nama Mahasiswa</th>
                                                 <th>SKS</th>
                                                 <th>Matakuliah</th>
                                                 @if (Auth::user()->role == "mahasiswa")

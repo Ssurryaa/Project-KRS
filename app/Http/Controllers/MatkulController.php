@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 
 class MatkulController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $matakuliahs = MataKuliah::all();
         $dosens = Dosen::all();
@@ -23,9 +23,10 @@ class MatkulController extends Controller
     public function addmatakuliah()
     {
         $status_mk = MataKuliah::getEnumKey('status_mk');
+        $semester = MataKuliah::getEnumKey('semester');
         $dosens = Dosen::all();
         $prodis=ProgramStudi::all();
-        return view('admin.add_matakuliah', compact('status_mk', 'dosens', 'prodis'));
+        return view('admin.add_matakuliah', compact('status_mk', 'semester', 'dosens', 'prodis'));
     }
     public function savematakuliah(Request $request)
     {   

@@ -54,7 +54,12 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="semester" class="form-label">Semester</label>
-                                            <input type="text" class="form-control" id="name" name="semester" required>
+                                            <select class="form-control" name="semester" id="semester">
+                                                <option selected value="">Pilih Semester</option>
+                                                  @foreach ($semester as $item)
+                                                      <option value="{{ $item }}">{{ $item }}</option>
+                                                  @endforeach
+                                                </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="sks" class="form-label">SKS</label>
